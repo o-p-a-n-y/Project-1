@@ -1,0 +1,117 @@
+$fontsize: 16px;
+@mixin boxshadow($args...) {
+  box-shadow: $args;
+  -webkit-box-shadow: $args;
+  -moz-box-shadow: $args;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font: #{$fontsize}/1.5em "Open Sans", sans-serif;
+  color: #212121;
+  text-transform: uppercase;
+  background: #BE93C5;
+  background: -webkit-linear-gradient(to left, #BE93C5, #7BC6CC);
+  background: linear-gradient(to left, #BE93C5, #7BC6CC);
+}
+
+::-moz-selection {
+    background-color: rgba(#fff, .4);
+}
+
+::selection {
+  background-color: rgba(#fff, .4);
+}
+
+#calculater {
+  position: relative;
+  width: 24rem;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  border: 1px solid rgba(#fff, .4);
+  border-radius: 2px;
+  overflow: hidden;
+  @include boxshadow(0 0 30px rgba(#212121, .2));
+}
+
+#display {
+  display: block;
+  width: 100%;
+  height: 7rem;
+  padding: 0;
+  margin: 0;
+  text-align: right;
+  background-color: rgba(#fff, .3);
+  border-bottom: 1px solid rgba(#000, .2);
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+#current, #last-action {
+
+  margin-right: 1rem;
+}
+
+#current {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+#last-action {
+  font-size: 1rem;
+  opacity: .6;
+}
+
+#controls {
+  @extend #display;
+  height: auto;
+  text-align: center;
+  background-color: rgba(#fff, .8);
+  border: none;
+}
+
+ul {
+  width: 100%;
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+
+  li {
+    width: 6rem - (1rem / 16);
+    float: left;
+    display: block;
+    margin: 0;
+    padding: 1.5rem 0;
+    border-right: 1px solid rgba(#000, .2);
+    border-bottom: 1px solid rgba(#000, .2);
+    font-size: 1.2rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    &.two-col {
+      width: 12rem - (1rem / 16);
+    }
+
+    &.two-row {
+      padding: 3.8rem 0;
+      float: right;
+    }
+
+    &:nth-child(4n) {
+      border-right: none;
+    }
+    &:nth-last-child(-n + 3) {
+      border-bottom-color: transparent;
+    }
+
+    &:hover, &:active {
+      background-color: #fff;
+    }
+  }
+}
